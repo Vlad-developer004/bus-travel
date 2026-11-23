@@ -13,8 +13,8 @@ export function validateEnv(config: Record<string, unknown>): Record<string, unk
   if (provider === 'stripe' && !(config.STRIPE_SECRET_KEY && config.STRIPE_WEBHOOK_SECRET)) {
     throw new Error('PAYMENT_PROVIDER=stripe requires STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET');
   }
-  if (config.NODE_ENV === 'production' && provider === 'mock') {
-    throw new Error('PAYMENT_PROVIDER=mock is not allowed in production');
+  if (config.NODE_ENV === 'production' && provider === 'mock' && config.ALLOW_MOCK_PAYMENTS !== 'true') {
+    throw new Error('PAYMENT_PROVIDER=mock is not allowed in production (set ALLOW_MOCK_PAYMENTS=true only for a public demo)');
   }
   if (config.NODE_ENV === 'production' && /change-me/.test(SECRETS.map((k) => config[k]).join(' '))) {
     throw new Error('Default placeholder secrets must not be used in production');

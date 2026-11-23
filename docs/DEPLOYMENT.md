@@ -100,3 +100,51 @@ Migrations only move forward, so write them backwards compatible (expand, then c
 * **Web on Vercel**: possible and simple (`apps/web`, root directory `apps/web`, set `API_URL` to the public API URL). The API and database would then need a public HTTPS endpoint; cookies stay first-party because of the `/api` rewrite. Preview deployments per pull request come for free.
 * **Managed database** (Neon, Supabase, RDS): replace the `db` service with a `DATABASE_URL`; keep the pre-deploy dump or use the provider's point-in-time recovery.
 * **Kubernetes**: not needed for one small app on one VPS. Worth it with several services, several hosts or autoscaling. The mapping is direct: each Compose service becomes a Deployment + Service, the `migrate` container becomes a Job (or Helm pre-upgrade hook), `.env` becomes Secret/ConfigMap, Caddy becomes an Ingress with cert-manager, `/api/health` becomes liveness/readiness probes.
+
+## Free demo hosting: Vercel + Neon
+
+The whole app runs for free as three pieces: the website and the API as two Vercel projects, the database on Neon (PostgreSQL, scales to zero). Payments stay in demo mode.
+
+| Piece | Where | Vercel setting |
+| --- | --- | --- |
+| Database | Neon project `bustravel` | not on Vercel |
+| API | Vercel project `bustravel-api` | Root Directory `apps/api`, Framework "Other", "Include source files outside of the Root Directory" ON |
+| Website | Vercel project `bustravel` (gives `bustravel.vercel.app`) | Root Directory `apps/web`, Framework Next.js, same "Include source files" option ON |
+
+The project name is the address: `<project-name>.vercel.app`. Pick it when importing the repository (or later in Settings, General, Project Name). If `bustravel` is taken, use another short readable name; the generated names with random letters only appear when the name is left unchanged.
+
+**1. Database (Neon).** Create a project, copy two connection strings: the *pooled* one (host contains `-pooler`) for the API at runtime, and the *direct* one for migrations. Then, from your computer:
+
+```bash
+cd apps/api
+DATABASE_URL="<direct string>" npx prisma migrate deploy
+DATABASE_URL="<direct string>" NODE_ENV=production SEED_PASSWORD="<strong admin password>" npm run db:seed
+```
+
+The production seed creates the cities, routes, trips and one administrator `admin@bustravel.local` (the owner). It creates no demo accounts and no fake reviews.
+
+**2. API project (`apps/api`).** Environment variables:
+
+| Name | Value |
+| --- | --- |
+| `NODE_ENV` | `production` |
+| `DATABASE_URL` | the pooled Neon string |
+| `WEB_URL` | the website address, e.g. `https://bustravel.vercel.app` |
+| `JWT_ACCESS_SECRET`, `JWT_REFRESH_SECRET`, `TICKET_SECRET` | three different random strings, 32+ characters each |
+| `PAYMENT_PROVIDER` | `mock` |
+| `ALLOW_MOCK_PAYMENTS` | `true` (a deliberate opt-in: the API otherwise refuses the demo provider in production) |
+| `INTERNAL_CRON_SECRET` | a random string, also stored as a GitHub secret (step 4) |
+| `SMTP_*`, `MAIL_FROM` | optional; without them no e-mail is sent |
+
+**3. Website project (`apps/web`).** Environment variables (they are read at build time, so redeploy after changing them):
+
+| Name | Value |
+| --- | --- |
+| `API_URL` | the API project address, e.g. `https://bustravel-api.vercel.app` |
+| `NEXT_PUBLIC_SITE_URL` | the website address, e.g. `https://bustravel.vercel.app` |
+
+**4. Scheduled jobs.** A serverless function cannot run a timer, so `.github/workflows/cron.yml` calls `POST /api/internal/tick` every hour (releases expired seat holds; the free Neon database wakes up for each call, so keep it rare) and once a day with `full=1` (tops up trips). Add two repository secrets: `API_URL` (the API address) and `INTERNAL_CRON_SECRET` (the same value as in step 2). Without them the workflow skips itself.
+
+**Limits of the free tier.** The first request after a quiet period is slower (the function and the database wake up). The GitHub schedule is best-effort, so seat holds may be released a few minutes late; every new booking on a trip also releases that trip's expired holds.
+
+The Docker + server deployment described above stays available; `deploy.yml` is started by hand (Actions, Deploy, Run workflow) because it needs an SSH server and secrets.

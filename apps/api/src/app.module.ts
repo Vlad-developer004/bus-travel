@@ -7,6 +7,7 @@ import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { BookingsModule } from './bookings/bookings.module';
 import { JwtAuthGuard, RolesGuard } from './common/auth';
+import { JobsModule } from './jobs/jobs.module';
 import { validateEnv } from './config/env';
 import { HealthController } from './health/health.controller';
 import { MailModule } from './mail/mail.service';
@@ -26,7 +27,7 @@ import { TripsModule } from './trips/trips.module';
         skipIf: () => config.get('THROTTLE_DISABLED') === 'true',
       }),
     }),
-    ScheduleModule.forRoot(),
+    ...(process.env.VERCEL ? [] : [ScheduleModule.forRoot()]),
     PrismaModule,
     MailModule,
     TicketsModule,
@@ -36,6 +37,7 @@ import { TripsModule } from './trips/trips.module';
     TripsModule,
     BookingsModule,
     AdminModule,
+    JobsModule,
   ],
   controllers: [HealthController],
   providers: [
