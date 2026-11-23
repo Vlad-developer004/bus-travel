@@ -1,0 +1,160 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: '22'
+
+jobs:
+  api:
+    name: API (typecheck, e2e on PostgreSQL)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: bustravel_ci
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/bustravel_ci
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - run: npx prisma generate
+        working-directory: apps/api
+      - name: Typecheck
+        run: npm run lint -w apps/api
+      - name: Migrations are in sync with schema.prisma
+        working-directory: apps/api
+        env:
+          SHADOW_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/shadow
+          PGPASSWORD: postgres
+        run: |
+          psql -h localhost -U postgres -c 'CREATE DATABASE shadow'
+          npx prisma migrate diff \
+            --from-migrations prisma/migrations \
+            --to-schema prisma/schema.prisma \
+            --exit-code
+      - name: End-to-end tests (real HTTP + real PostgreSQL)
+        run: npm run test:e2e -w apps/api
+
+  web:
+    name: Web (typecheck, build)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - run: npm run lint -w apps/web
+      - name: Build
+        run: npm run build -w apps/web
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+
+  ui:
+    name: UI end-to-end (Playwright, whole stack)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: [api, web]
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: bustravel_ui
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/bustravel_ui
+      NODE_ENV: test
+      WEB_URL: http://localhost:3000
+      JWT_ACCESS_SECRET: ci-access-secret-0123456789-abcdefghijkl
+      JWT_REFRESH_SECRET: ci-refresh-secret-0123456789-abcdefghijk
+      TICKET_SECRET: ci-ticket-secret-0123456789-abcdefghijkl
+      PAYMENT_PROVIDER: mock
+      THROTTLE_DISABLED: 'true'
+      BCRYPT_ROUNDS: '4'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - name: Build, migrate and seed
+        working-directory: apps/api
+        run: |
+          npm run build
+          npx prisma migrate deploy
+          npx ts-node prisma/seed.ts
+      - name: Start API and web
+        run: |
+          (cd apps/api && nohup node dist/main.js > /tmp/api.log 2>&1 &)
+          npm run build -w apps/web
+          (cd apps/web && nohup npx next start -p 3000 > /tmp/web.log 2>&1 &)
+          for i in $(seq 1 30); do curl -fsS localhost:3000/api/health && break || sleep 2; done
+      - run: npx playwright install --with-deps chromium
+        working-directory: apps/web
+      - name: Run browser tests
+        run: npx playwright test
+        working-directory: apps/web
+      - name: Upload report and server logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-e2e-debug
+          path: |
+            apps/web/playwright-report
+            apps/web/test-results
+            /tmp/api.log
+            /tmp/web.log
+
+  docker:
+    name: Docker images build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: [api, web]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build API image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: apps/api/Dockerfile
+          push: false
+          cache-from: type=gha,scope=api
+          cache-to: type=gha,scope=api,mode=max
+      - name: Build web image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: apps/web/Dockerfile
+          push: false
+          cache-from: type=gha,scope=web
+          cache-to: type=gha,scope=web,mode=max

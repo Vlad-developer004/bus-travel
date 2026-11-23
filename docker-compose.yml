@@ -1,0 +1,55 @@
+name: bustravel-dev
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: bustravel
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-bustravel}
+      POSTGRES_DB: bustravel
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U bustravel -d bustravel']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    ports:
+      - '127.0.0.1:5432:5432' # bound to localhost only
+
+  migrate:
+    build: { context: ., dockerfile: apps/api/Dockerfile }
+    command: sh -c "npx prisma migrate deploy"
+    environment:
+      DATABASE_URL: postgresql://bustravel:${POSTGRES_PASSWORD:-bustravel}@db:5432/bustravel
+    depends_on:
+      db: { condition: service_healthy }
+    restart: 'no'
+
+  api:
+    build: { context: ., dockerfile: apps/api/Dockerfile }
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgresql://bustravel:${POSTGRES_PASSWORD:-bustravel}@db:5432/bustravel
+      WEB_URL: http://localhost:3000
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-dev-access-secret-please-change-0123456789}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-dev-refresh-secret-please-change-012345678}
+      TICKET_SECRET: ${TICKET_SECRET:-dev-ticket-secret-please-change-01234567890}
+      PAYMENT_PROVIDER: mock
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+    ports:
+      - '127.0.0.1:4000:4000'
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args: { API_URL: 'http://api:4000' }
+    depends_on:
+      api: { condition: service_healthy }
+    ports:
+      - '127.0.0.1:3000:3000'
+
+volumes:
+  pgdata:

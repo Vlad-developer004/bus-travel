@@ -1,0 +1,11 @@
+# Automatic HTTPS (Let's Encrypt) for {$DOMAIN}. Everything goes to the Next.js container,
+# which proxies /api/* to the API over the private network.
+{$DOMAIN} {
+	encode zstd gzip
+	reverse_proxy web:3000
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		-Server
+	}
+}

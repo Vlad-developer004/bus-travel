@@ -1,0 +1,461 @@
+{
+  "meta": {
+    "title": "BusTravel: comfortable bus trips across Europe",
+    "description": "Search trips, pick your seat and get your ticket in minutes."
+  },
+  "nav": {
+    "home": "Home",
+    "map": "Map",
+    "trips": "My trips",
+    "help": "Help",
+    "admin": "Admin",
+    "driver": "Driver",
+    "login": "Log in",
+    "register": "Sign up",
+    "logout": "Log out",
+    "menu": "Menu",
+    "main": "Main",
+    "mobile": "Mobile menu"
+  },
+  "home": {
+    "title": "Your next trip starts here",
+    "subtitle": "Comfortable, affordable bus travel between 13 European cities. Pick your seat and get your ticket in minutes.",
+    "from": "From",
+    "to": "To",
+    "date": "Date",
+    "passengers": "Passengers",
+    "search": "Search trips",
+    "selectCity": "Choose a city",
+    "swap": "Swap cities",
+    "popular": "Popular directions",
+    "popularSub": "Daily departures, fixed prices, no hidden fees.",
+    "fromPrice": "from {price}",
+    "whyTitle": "Why BusTravel",
+    "why": {
+      "punctual": {
+        "t": "On time",
+        "d": "Daily departures on a fixed schedule so you can plan with confidence."
+      },
+      "comfort": {
+        "t": "Choose your seat",
+        "d": "See the seat map and pick exactly where you want to sit."
+      },
+      "safe": {
+        "t": "Safe and simple",
+        "d": "Secure payment and a QR ticket straight to your inbox."
+      },
+      "price": {
+        "t": "Honest prices",
+        "d": "The price you see is the price you pay. Extra luggage is clearly priced."
+      }
+    },
+    "mapTitle": "See the whole network",
+    "mapText": "All cities and directions on one interactive map.",
+    "mapCta": "Open the map",
+    "statCities": "cities",
+    "statRoutes": "routes",
+    "statLangs": "languages",
+    "popularFrom": "From",
+    "locate": "Use my location",
+    "locateFail": "We could not get your location. Pick a city from the list instead."
+  },
+  "search": {
+    "title": "Trips {from} → {to}",
+    "noResults": "No trips found for this day",
+    "noResultsHint": "Try another date. Departures run every day.",
+    "seatsLeft": "{count, plural, one {# seat left} other {# seats left}}",
+    "select": "Select seats",
+    "pickCities": "Choose both cities to search",
+    "sameCity": "Departure and destination must differ",
+    "loading": "Searching…",
+    "prevDay": "Previous day",
+    "nextDay": "Next day",
+    "sortBy": "Sort",
+    "sortTime": "Earliest",
+    "sortPrice": "Cheapest",
+    "sortFast": "Fastest",
+    "morning": "Morning",
+    "afternoon": "Afternoon",
+    "evening": "Evening",
+    "onlySeats": "Seats for everyone",
+    "cheapest": "Cheapest",
+    "fastest": "Fastest",
+    "found": "{count, plural, one {# trip} other {# trips}}",
+    "fromPrice": "from {price}",
+    "reset": "Reset filters",
+    "noMatch": "No trips match these filters"
+  },
+  "trip": {
+    "title": "Choose your seats",
+    "free": "Free",
+    "taken": "Taken",
+    "selected": "Your seat",
+    "front": "Front of the bus",
+    "passengerDetails": "Passenger details",
+    "passenger": "Passenger {n} (seat {seat})",
+    "fullName": "Full name",
+    "largeBags": "Large suitcase (+{fee})",
+    "total": "Total",
+    "book": "Continue to payment",
+    "loginToBook": "Log in to book",
+    "seatTaken": "One of the seats was just taken by someone else. Please choose another.",
+    "hold": "Your seats are held for 30 minutes while you pay.",
+    "selectAtLeast": "Select at least one seat",
+    "nameRequired": "Enter a name for every passenger",
+    "error": "Something went wrong. Please try again.",
+    "departed": "This trip is no longer available"
+  },
+  "auth": {
+    "loginTitle": "Welcome back",
+    "registerTitle": "Create your account",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 8 characters",
+    "name": "Name",
+    "login": "Log in",
+    "register": "Sign up",
+    "noAccount": "No account yet?",
+    "haveAccount": "Already registered?",
+    "invalid": "Wrong email or password",
+    "exists": "This email is already registered",
+    "verifying": "Confirming your email…",
+    "verified": "Email confirmed. Thank you!",
+    "verifyFailed": "This confirmation link is invalid or expired.",
+    "perk1": "Pick your exact seat on the bus map",
+    "perk2": "Tickets with a QR code, ready on your phone",
+    "perk3": "Save routes and see your trips in one place",
+    "show": "Show password",
+    "hide": "Hide password",
+    "perksTitle": "Everything for your trip in one account",
+    "inviteBanner": "You were invited as an administrator. Create your account to accept."
+  },
+  "account": {
+    "title": "My trips",
+    "loading": "Loading…",
+    "empty": "You have no bookings yet.",
+    "emptyCta": "Find a trip",
+    "status": {
+      "PENDING": "Awaiting payment",
+      "PAID": "Paid",
+      "CANCELLED": "Cancelled",
+      "EXPIRED": "Expired"
+    },
+    "pay": "Pay now",
+    "cancel": "Cancel booking",
+    "cancelConfirm": "Cancel this booking?",
+    "yes": "Yes, cancel",
+    "no": "Keep it",
+    "payBefore": "Pay before {time} or the seats are released",
+    "ticket": "Your ticket",
+    "ticketHint": "Show this QR code to the driver when boarding.",
+    "seats": "Seats",
+    "code": "Booking code",
+    "paidOk": "Payment received. Your ticket is below and in your inbox.",
+    "back": "All trips",
+    "passengers": "Passengers",
+    "baggage": "Luggage",
+    "boarded": "Boarded",
+    "cancelFailed": "This booking can no longer be cancelled (less than 2 hours before departure).",
+    "total": "Total",
+    "addCal": "Add to calendar",
+    "print": "Print ticket",
+    "calTitle": "Bus {from} → {to}",
+    "upcoming": "Upcoming trips",
+    "past": "Past trips",
+    "next": "Next trip"
+  },
+  "pay": {
+    "title": "Demo checkout",
+    "text": "This is a demo payment page. No real money is charged and no real ticket is issued. Never enter real card data.",
+    "button": "Pay {amount}",
+    "demo": "Test mode",
+    "processing": "Processing…",
+    "error": "Payment could not be completed."
+  },
+  "map": {
+    "title": "Our network",
+    "subtitle": "Click a city to see its direct routes.",
+    "routesFrom": "Routes from {city}"
+  },
+  "admin": {
+    "title": "Dashboard",
+    "noAccess": "This page is for administrators.",
+    "revenue": "Revenue",
+    "paidBookings": "Paid bookings",
+    "upcomingTrips": "Upcoming trips",
+    "pending": "Awaiting payment",
+    "last14": "Revenue, last 14 days",
+    "bookings": "Bookings",
+    "all": "All",
+    "code": "Code",
+    "route": "Route",
+    "email": "Customer",
+    "seatsCol": "Seats",
+    "total": "Total",
+    "status": "Status",
+    "departure": "Departure",
+    "empty": "No bookings",
+    "week": "Last 7 days",
+    "vsPrev": "{pct} vs previous week",
+    "occupancy": "Seat occupancy",
+    "occupancyHint": "of seats on trips in the next 7 days are booked",
+    "topRoutes": "Top routes by revenue",
+    "tickets": "{n} tickets",
+    "search": "Search by code or email",
+    "prev": "Previous",
+    "next": "Next",
+    "page": "Page {n} of {total}",
+    "noSales": "No sales yet",
+    "team": "Administrators",
+    "teamHint": "Invite people by email. Someone without an account gets a link that makes their new account an administrator.",
+    "inviteEmail": "Email address",
+    "inviteBtn": "Send invitation",
+    "owner": "Owner",
+    "remove": "Remove access",
+    "removeConfirm": "Remove administrator access for {email}?",
+    "pendingInvites": "Pending invitations",
+    "revoke": "Cancel invitation",
+    "sentInvite": "Invitation sent to {email}.",
+    "promoted": "{email} is now an administrator.",
+    "already": "This person is already an administrator.",
+    "inviteFail": "Could not send the invitation.",
+    "expires": "valid until {date}",
+    "booked": "Booked",
+    "cancel": "Cancel",
+    "tabs": {
+      "overview": "Overview",
+      "bookings": "Bookings",
+      "trips": "Trips",
+      "routes": "Routes",
+      "users": "Users",
+      "team": "Administrators"
+    },
+    "cancelledRefunded": "Booking cancelled and refunded.",
+    "cancelledOk": "Booking cancelled.",
+    "actionFail": "The action failed. Please try again.",
+    "resent": "Ticket email sent.",
+    "actions": "Actions",
+    "cancelRefund": "Cancel and refund",
+    "cancelBooking": "Cancel booking",
+    "keep": "Keep",
+    "openTicket": "Open ticket",
+    "resend": "Resend ticket email",
+    "trips": "Trips",
+    "addTrip": "Add trip",
+    "tripCreated": "Trip created.",
+    "bus": "Bus",
+    "create": "Create",
+    "priceOptional": "Price, € (empty = route price)",
+    "scope": {
+      "upcoming": "Upcoming",
+      "past": "Past",
+      "cancelled": "Cancelled"
+    },
+    "fromCity": "From city",
+    "toCity": "To city",
+    "reset": "Reset",
+    "occupancyCol": "Seats sold",
+    "price": "Price",
+    "tripStatus": {
+      "SCHEDULED": "Scheduled",
+      "CANCELLED": "Cancelled",
+      "COMPLETED": "Completed"
+    },
+    "cancelTripConfirm": "Cancel trip and {n} bookings",
+    "cancelTrip": "Cancel trip",
+    "tripCancelled": "Trip cancelled: {n} bookings cancelled, {refunded} refunded.",
+    "editPrice": "Edit price",
+    "save": "Save",
+    "routes": "Routes",
+    "routesHint": "The base price is used for trips created from now on. Existing trips keep their price; change those in Trips.",
+    "distance": "Distance",
+    "durationCol": "Duration",
+    "basePrice": "Base price",
+    "schedules": "Schedules",
+    "priceSaved": "Base price saved.",
+    "schedulesTitle": "Schedules",
+    "schedulesHint": "A schedule creates trips automatically for the next 30 days. Switch one off to stop creating new trips (existing trips stay).",
+    "addSchedule": "Add schedule",
+    "scheduleCreated": "Schedule created, trips generated.",
+    "timeUtc": "Departure (UTC)",
+    "days": "Days",
+    "daily": "Every day",
+    "byRoute": "Route price",
+    "active": "Active",
+    "users": "Users",
+    "searchUsers": "Search by name or email",
+    "role": "Role",
+    "passenger": "Passenger",
+    "bookingsCount": "Bookings",
+    "registered": "Registered",
+    "emailVerified": "Email confirmed",
+    "roleSaved": "Role saved.",
+    "noTrips": "No trips found.",
+    "time": "Time"
+  },
+  "driver": {
+    "title": "Boarding",
+    "hint": "Scan the passenger's QR code (or paste its text) to check the ticket.",
+    "placeholder": "BT1.XXXXXX.…",
+    "scan": "Check ticket",
+    "noAccess": "This page is for drivers and administrators.",
+    "valid": "Valid ticket",
+    "invalid": "Invalid ticket",
+    "boardedNow": "Boarded",
+    "alreadyBoarded": "Already boarded earlier",
+    "reasonNOT_PAID": "The booking is not paid",
+    "reasonTRIP_CANCELLED": "The trip was cancelled",
+    "unknown": "Ticket not recognised",
+    "passengers": "Passengers"
+  },
+  "help": {
+    "title": "Help and rules",
+    "faq": [
+      {
+        "q": "How do I book a ticket?",
+        "a": "Search for your route, choose a trip, pick your seats, enter passenger names and pay. The ticket with a QR code arrives by email and stays in My trips."
+      },
+      {
+        "q": "How long are my seats held?",
+        "a": "30 minutes. If the payment is not completed in time, the seats are released automatically."
+      },
+      {
+        "q": "Can I cancel a ticket?",
+        "a": "Yes, until 2 hours before departure. Paid tickets are refunded to the original payment method."
+      },
+      {
+        "q": "What luggage is included?",
+        "a": "One piece of hand luggage per passenger is free. A large suitcase costs a small fixed fee that is shown before you pay."
+      },
+      {
+        "q": "What if my trip is cancelled?",
+        "a": "You are notified by email, the booking is cancelled and you are refunded in full."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Comfortable bus trips across Europe.",
+    "rights": "BusTravel. Portfolio project.",
+    "demo": "Demo project: payments run in test mode, no real tickets are sold.",
+    "photos": "Photo credits",
+    "explore": "Explore",
+    "account": "Account",
+    "languages": "Language",
+    "built": "Built with Next.js, NestJS and PostgreSQL",
+    "legal": "Legal"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy policy",
+      "sections": [
+        {
+          "h": "Who we are",
+          "p": "BusTravel is a portfolio project. It is not a real transport company and sells no real tickets."
+        },
+        {
+          "h": "What we store",
+          "p": "When you sign up we store your name, email address and a hashed password. When you book we store the trip, the seats and the passenger names you enter. We never see or store card details: payments run in test mode."
+        },
+        {
+          "h": "Cookies",
+          "p": "We only use strictly necessary cookies: two sign-in cookies that keep you logged in (scripts cannot read them) and your language choice. There are no advertising or tracking cookies, so there is no cookie banner. Your choice of departure city on the home page stays in your browser only."
+        },
+        {
+          "h": "Location",
+          "p": "The location button on the home page asks your browser for permission. Your position is used once, inside your browser, to find the nearest city. It is never sent to our servers."
+        },
+        {
+          "h": "Retention",
+          "p": "Data is kept only to run the demo and may be erased at any time."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of use",
+      "sections": [
+        {
+          "h": "A demo service",
+          "p": "BusTravel shows how an online bus booking service could work. Routes, prices and timetables are examples and do not describe real journeys."
+        },
+        {
+          "h": "Bookings and payments",
+          "p": "A selected seat is held for 30 minutes. Payment runs in test mode: no money is taken and no real tickets are issued."
+        },
+        {
+          "h": "Your account",
+          "p": "Keep your password safe. You are responsible for what happens under your account."
+        },
+        {
+          "h": "Content",
+          "p": "City photos come from Wikimedia Commons. Authors and licences are listed under Photo credits in the footer."
+        },
+        {
+          "h": "Liability",
+          "p": "The service is provided as it is, without any guarantee that it is always available or error free."
+        }
+      ]
+    },
+    "imprint": {
+      "title": "Imprint",
+      "sections": [
+        {
+          "h": "Operator",
+          "p": "BusTravel is a non-commercial portfolio project run by its author."
+        },
+        {
+          "h": "Purpose",
+          "p": "It demonstrates a full web stack: Next.js front end, NestJS API, PostgreSQL database and automated deployment."
+        },
+        {
+          "h": "For a real service",
+          "p": "This page would show the legal name, address and contact details of the operator, for example the Impressum required in Germany."
+        }
+      ]
+    }
+  },
+  "extras": {
+    "roundTrip": "Round trip",
+    "oneWay": "One way",
+    "returnDate": "Return",
+    "chooseOutbound": "Choose your outbound trip",
+    "chooseReturn": "Choose your return trip",
+    "outboundHeld": "Outbound trip chosen. Its seats are held while you pick the return.",
+    "priceByDay": "Prices by day",
+    "noTripsDay": "No trips",
+    "lowest": "Lowest",
+    "save": "Save route",
+    "unsave": "Remove from saved",
+    "savedRoutes": "Saved routes",
+    "recent": "Recent searches",
+    "share": "Share",
+    "copied": "Link copied",
+    "onBoard": "On board",
+    "wifi": "Wi-Fi",
+    "usb": "USB sockets",
+    "ac": "Air conditioning",
+    "wc": "Toilet",
+    "hold": "Luggage hold",
+    "roundTripTickets": "Round trip: {count} tickets",
+    "rating": "{avg} out of 5",
+    "ratingCount": "{count, plural, one {# review} other {# reviews}}",
+    "demoNote": "Test mode: no real money is charged and no real tickets are sold. This is a portfolio project."
+  },
+  "reviews": {
+    "title": "Passenger reviews",
+    "based": "{count, plural, one {Based on # review} other {Based on # reviews}}",
+    "verified": "Verified passenger",
+    "write": "Rate this trip",
+    "yourRating": "Your rating",
+    "comment": "Comment (optional)",
+    "commentPh": "What was the trip like?",
+    "submit": "Send review",
+    "thanks": "Thank you for your review!",
+    "yours": "Your review",
+    "none": "No reviews yet. Be the first after your trip.",
+    "stars": "{n} out of 5 stars",
+    "error": "Could not send the review. Please try again."
+  },
+  "common": {
+    "loading": "Loading…"
+  }
+}

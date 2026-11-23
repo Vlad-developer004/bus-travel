@@ -1,0 +1,41 @@
+name: SSH deploy
+description: Copies the deploy files to the server and runs deploy.sh (migrate, health check, auto-rollback).
+
+inputs:
+  environment: { description: staging or production, required: true }
+  tag: { description: Image tag (commit SHA) to deploy, required: true }
+  host: { required: true }
+  user: { required: true }
+  key: { description: Private SSH key of the deploy user, required: true }
+  known-hosts: { description: Pinned host key (output of ssh-keyscan), required: true }
+  ghcr-token: { description: Read-only token so the server can pull images, required: true }
+
+runs:
+  using: composite
+  steps:
+    - name: Prepare SSH
+      shell: bash
+      env:
+        KEY: ${{ inputs.key }}
+        KNOWN_HOSTS: ${{ inputs.known-hosts }}
+      run: |
+        install -m 700 -d ~/.ssh
+        printf '%s\n' "$KEY" > ~/.ssh/id_deploy && chmod 600 ~/.ssh/id_deploy
+        printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+    - name: Copy deploy files
+      shell: bash
+      run: |
+        scp -i ~/.ssh/id_deploy deploy/docker-compose.server.yml deploy/Caddyfile deploy/deploy.sh \
+          "${{ inputs.user }}@${{ inputs.host }}:/opt/bustravel/${{ inputs.environment }}/"
+
+    - name: Deploy
+      shell: bash
+      env:
+        GHCR_TOKEN: ${{ inputs.ghcr-token }}
+        GHCR_USER: ${{ github.repository_owner }}
+      run: |
+        printf '%s' "$GHCR_TOKEN" | ssh -i ~/.ssh/id_deploy "${{ inputs.user }}@${{ inputs.host }}" \
+          "docker login ghcr.io -u '$GHCR_USER' --password-stdin >/dev/null && \
+           chmod +x /opt/bustravel/${{ inputs.environment }}/deploy.sh && \
+           /opt/bustravel/${{ inputs.environment }}/deploy.sh ${{ inputs.environment }} ${{ inputs.tag }}"

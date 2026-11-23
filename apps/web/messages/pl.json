@@ -1,0 +1,461 @@
+{
+  "meta": {
+    "title": "BusTravel: wygodne podróże autobusem po Europie",
+    "description": "Znajdź kurs, wybierz miejsce i odbierz bilet w kilka minut."
+  },
+  "nav": {
+    "home": "Start",
+    "map": "Mapa",
+    "trips": "Moje podróże",
+    "help": "Pomoc",
+    "admin": "Admin",
+    "driver": "Kierowca",
+    "login": "Zaloguj się",
+    "register": "Zarejestruj się",
+    "logout": "Wyloguj",
+    "menu": "Menu",
+    "main": "Nawigacja główna",
+    "mobile": "Menu mobilne"
+  },
+  "home": {
+    "title": "Twoja kolejna podróż zaczyna się tutaj",
+    "subtitle": "Wygodne i tanie podróże autobusem między 13 europejskimi miastami. Wybierz miejsce i odbierz bilet w kilka minut.",
+    "from": "Skąd",
+    "to": "Dokąd",
+    "date": "Data",
+    "passengers": "Pasażerowie",
+    "search": "Szukaj kursów",
+    "selectCity": "Wybierz miasto",
+    "swap": "Zamień miasta",
+    "popular": "Popularne kierunki",
+    "popularSub": "Codzienne odjazdy, stałe ceny, bez ukrytych opłat.",
+    "fromPrice": "od {price}",
+    "whyTitle": "Dlaczego BusTravel",
+    "why": {
+      "punctual": {
+        "t": "Punktualnie",
+        "d": "Codzienne odjazdy według stałego rozkładu, żebyś mógł planować z pewnością."
+      },
+      "comfort": {
+        "t": "Wybierz miejsce",
+        "d": "Zobacz plan autobusu i wybierz dokładnie to miejsce, które chcesz."
+      },
+      "safe": {
+        "t": "Bezpiecznie i prosto",
+        "d": "Bezpieczna płatność i bilet z kodem QR prosto na Twoją skrzynkę."
+      },
+      "price": {
+        "t": "Uczciwe ceny",
+        "d": "Cena, którą widzisz, jest ceną do zapłaty. Dodatkowy bagaż jest jasno wyceniony."
+      }
+    },
+    "mapTitle": "Cała sieć połączeń",
+    "mapText": "Wszystkie miasta i kierunki na jednej interaktywnej mapie.",
+    "mapCta": "Otwórz mapę",
+    "statCities": "miast",
+    "statRoutes": "tras",
+    "statLangs": "języki",
+    "popularFrom": "Z",
+    "locate": "Użyj mojej lokalizacji",
+    "locateFail": "Nie udało się ustalić lokalizacji. Wybierz miasto z listy."
+  },
+  "search": {
+    "title": "Kursy {from} → {to}",
+    "noResults": "Nie znaleziono kursów na ten dzień",
+    "noResultsHint": "Spróbuj innej daty. Autobusy jeżdżą codziennie.",
+    "seatsLeft": "{count, plural, one {# wolne miejsce} few {# wolne miejsca} many {# wolnych miejsc} other {# wolnych miejsc}}",
+    "select": "Wybierz miejsca",
+    "pickCities": "Wybierz oba miasta, aby wyszukać",
+    "sameCity": "Miejsce wyjazdu i docelowe muszą się różnić",
+    "loading": "Szukamy…",
+    "prevDay": "Poprzedni dzień",
+    "nextDay": "Następny dzień",
+    "sortBy": "Sortuj",
+    "sortTime": "Najwcześniejsze",
+    "sortPrice": "Najtańsze",
+    "sortFast": "Najszybsze",
+    "morning": "Rano",
+    "afternoon": "Po południu",
+    "evening": "Wieczorem",
+    "onlySeats": "Miejsca dla wszystkich",
+    "cheapest": "Najtańszy",
+    "fastest": "Najszybszy",
+    "found": "{count, plural, one {# kurs} few {# kursy} many {# kursów} other {# kursu}}",
+    "fromPrice": "od {price}",
+    "reset": "Wyczyść filtry",
+    "noMatch": "Brak kursów dla tych filtrów"
+  },
+  "trip": {
+    "title": "Wybierz miejsca",
+    "free": "Wolne",
+    "taken": "Zajęte",
+    "selected": "Twoje miejsce",
+    "front": "Przód autobusu",
+    "passengerDetails": "Dane pasażerów",
+    "passenger": "Pasażer {n} (miejsce {seat})",
+    "fullName": "Imię i nazwisko",
+    "largeBags": "Duża walizka (+{fee})",
+    "total": "Razem",
+    "book": "Przejdź do płatności",
+    "loginToBook": "Zaloguj się, aby zarezerwować",
+    "seatTaken": "Jedno z miejsc zostało właśnie zajęte przez kogoś innego. Wybierz inne.",
+    "hold": "Miejsca są zarezerwowane przez 30 minut na czas płatności.",
+    "selectAtLeast": "Wybierz co najmniej jedno miejsce",
+    "nameRequired": "Podaj imię każdego pasażera",
+    "error": "Coś poszło nie tak. Spróbuj ponownie.",
+    "departed": "Ten kurs nie jest już dostępny"
+  },
+  "auth": {
+    "loginTitle": "Witaj ponownie",
+    "registerTitle": "Załóż konto",
+    "email": "E-mail",
+    "password": "Hasło",
+    "passwordHint": "Co najmniej 8 znaków",
+    "name": "Imię",
+    "login": "Zaloguj się",
+    "register": "Zarejestruj się",
+    "noAccount": "Nie masz jeszcze konta?",
+    "haveAccount": "Masz już konto?",
+    "invalid": "Nieprawidłowy e-mail lub hasło",
+    "exists": "Ten adres e-mail jest już zarejestrowany",
+    "verifying": "Potwierdzamy e-mail…",
+    "verified": "E-mail potwierdzony. Dziękujemy!",
+    "verifyFailed": "Ten link jest nieprawidłowy lub wygasł.",
+    "perk1": "Wybierz konkretne miejsce na planie autobusu",
+    "perk2": "Bilety z kodem QR zawsze w telefonie",
+    "perk3": "Zapisuj trasy i miej wszystkie podróże w jednym miejscu",
+    "show": "Pokaż hasło",
+    "hide": "Ukryj hasło",
+    "perksTitle": "Wszystko na podróż w jednym koncie",
+    "inviteBanner": "Zaproszono Cię jako administratora. Załóż konto, aby przyjąć zaproszenie."
+  },
+  "account": {
+    "title": "Moje podróże",
+    "loading": "Ładowanie…",
+    "empty": "Nie masz jeszcze rezerwacji.",
+    "emptyCta": "Znajdź kurs",
+    "status": {
+      "PENDING": "Oczekuje na płatność",
+      "PAID": "Opłacona",
+      "CANCELLED": "Anulowana",
+      "EXPIRED": "Wygasła"
+    },
+    "pay": "Zapłać teraz",
+    "cancel": "Anuluj rezerwację",
+    "cancelConfirm": "Anulować tę rezerwację?",
+    "yes": "Tak, anuluj",
+    "no": "Zostaw",
+    "payBefore": "Zapłać do {time}, inaczej miejsca zostaną zwolnione",
+    "ticket": "Twój bilet",
+    "ticketHint": "Pokaż ten kod QR kierowcy przy wsiadaniu.",
+    "seats": "Miejsca",
+    "code": "Kod rezerwacji",
+    "paidOk": "Płatność otrzymana. Bilet znajdziesz poniżej i w skrzynce e-mail.",
+    "back": "Wszystkie podróże",
+    "passengers": "Pasażerowie",
+    "baggage": "Bagaż",
+    "boarded": "Wsiadł",
+    "cancelFailed": "Tej rezerwacji nie można już anulować (mniej niż 2 godziny do odjazdu).",
+    "total": "Razem",
+    "addCal": "Dodaj do kalendarza",
+    "print": "Drukuj bilet",
+    "calTitle": "Autobus {from} → {to}",
+    "upcoming": "Nadchodzące podróże",
+    "past": "Minione podróże",
+    "next": "Najbliższa podróż"
+  },
+  "pay": {
+    "title": "Płatność demo",
+    "text": "To demonstracyjna strona płatności. Pieniądze nie są pobierane, prawdziwy bilet nie jest wystawiany. Nie wpisuj prawdziwych danych karty.",
+    "button": "Zapłać {amount}",
+    "demo": "Tryb testowy",
+    "processing": "Przetwarzanie…",
+    "error": "Nie udało się dokończyć płatności."
+  },
+  "map": {
+    "title": "Nasza sieć",
+    "subtitle": "Kliknij miasto, aby zobaczyć połączenia bezpośrednie.",
+    "routesFrom": "Połączenia z miasta {city}"
+  },
+  "admin": {
+    "title": "Panel",
+    "noAccess": "Ta strona jest dla administratorów.",
+    "revenue": "Przychód",
+    "paidBookings": "Opłacone rezerwacje",
+    "upcomingTrips": "Nadchodzące kursy",
+    "pending": "Oczekują na płatność",
+    "last14": "Przychód z 14 dni",
+    "bookings": "Rezerwacje",
+    "all": "Wszystkie",
+    "code": "Kod",
+    "route": "Trasa",
+    "email": "Klient",
+    "seatsCol": "Miejsca",
+    "total": "Suma",
+    "status": "Status",
+    "departure": "Odjazd",
+    "empty": "Brak rezerwacji",
+    "week": "Ostatnie 7 dni",
+    "vsPrev": "{pct} względem poprzedniego tygodnia",
+    "occupancy": "Obłożenie miejsc",
+    "occupancyHint": "miejsc na kursach w ciągu 7 dni jest zarezerwowanych",
+    "topRoutes": "Najlepsze trasy wg przychodu",
+    "tickets": "biletów: {n}",
+    "search": "Szukaj po kodzie lub e-mailu",
+    "prev": "Wstecz",
+    "next": "Dalej",
+    "page": "Strona {n} z {total}",
+    "noSales": "Brak sprzedaży",
+    "team": "Administratorzy",
+    "teamHint": "Zapraszaj osoby e-mailem. Kto nie ma jeszcze konta, dostanie link, który zrobi z nowego konta administratora.",
+    "inviteEmail": "Adres e-mail",
+    "inviteBtn": "Wyślij zaproszenie",
+    "owner": "Właściciel",
+    "remove": "Odbierz dostęp",
+    "removeConfirm": "Odebrać dostęp administratora dla {email}?",
+    "pendingInvites": "Oczekujące zaproszenia",
+    "revoke": "Anuluj zaproszenie",
+    "sentInvite": "Zaproszenie wysłano na {email}.",
+    "promoted": "{email} jest teraz administratorem.",
+    "already": "Ta osoba jest już administratorem.",
+    "inviteFail": "Nie udało się wysłać zaproszenia.",
+    "expires": "ważne do {date}",
+    "booked": "Utworzono",
+    "cancel": "Anuluj",
+    "tabs": {
+      "overview": "Przegląd",
+      "bookings": "Rezerwacje",
+      "trips": "Kursy",
+      "routes": "Trasy",
+      "users": "Użytkownicy",
+      "team": "Administratorzy"
+    },
+    "cancelledRefunded": "Rezerwacja anulowana, zwrot wykonany.",
+    "cancelledOk": "Rezerwacja anulowana.",
+    "actionFail": "Nie udało się wykonać akcji. Spróbuj ponownie.",
+    "resent": "E-mail z biletem wysłany.",
+    "actions": "Akcje",
+    "cancelRefund": "Anuluj i zwróć pieniądze",
+    "cancelBooking": "Anuluj rezerwację",
+    "keep": "Zostaw",
+    "openTicket": "Otwórz bilet",
+    "resend": "Wyślij e-mail z biletem ponownie",
+    "trips": "Kursy",
+    "addTrip": "Dodaj kurs",
+    "tripCreated": "Kurs utworzony.",
+    "bus": "Autobus",
+    "create": "Utwórz",
+    "priceOptional": "Cena, € (puste = cena trasy)",
+    "scope": {
+      "upcoming": "Nadchodzące",
+      "past": "Minione",
+      "cancelled": "Odwołane"
+    },
+    "fromCity": "Miasto początkowe",
+    "toCity": "Miasto docelowe",
+    "reset": "Wyczyść",
+    "occupancyCol": "Sprzedane miejsca",
+    "price": "Cena",
+    "tripStatus": {
+      "SCHEDULED": "Zaplanowany",
+      "CANCELLED": "Odwołany",
+      "COMPLETED": "Zakończony"
+    },
+    "cancelTripConfirm": "Odwołaj kurs i rezerwacje: {n}",
+    "cancelTrip": "Odwołaj kurs",
+    "tripCancelled": "Kurs odwołany: anulowano rezerwacji {n}, zwrotów {refunded}.",
+    "editPrice": "Zmień cenę",
+    "save": "Zapisz",
+    "routes": "Trasy",
+    "routesHint": "Cena bazowa obowiązuje dla kursów tworzonych od teraz. Istniejące kursy zachowują swoją cenę; zmienisz ją w sekcji Kursy.",
+    "distance": "Odległość",
+    "durationCol": "Czas",
+    "basePrice": "Cena bazowa",
+    "schedules": "Rozkłady",
+    "priceSaved": "Cena bazowa zapisana.",
+    "schedulesTitle": "Rozkłady",
+    "schedulesHint": "Rozkład automatycznie tworzy kursy na 30 dni naprzód. Wyłącz go, aby nie tworzyć nowych kursów (istniejące zostają).",
+    "addSchedule": "Dodaj rozkład",
+    "scheduleCreated": "Rozkład utworzony, kursy wygenerowane.",
+    "timeUtc": "Odjazd (UTC)",
+    "days": "Dni",
+    "daily": "Codziennie",
+    "byRoute": "Cena trasy",
+    "active": "Aktywny",
+    "users": "Użytkownicy",
+    "searchUsers": "Szukaj po imieniu lub e-mailu",
+    "role": "Rola",
+    "passenger": "Pasażer",
+    "bookingsCount": "Rezerwacje",
+    "registered": "Rejestracja",
+    "emailVerified": "E-mail potwierdzony",
+    "roleSaved": "Rola zapisana.",
+    "noTrips": "Nie znaleziono kursów.",
+    "time": "Godzina"
+  },
+  "driver": {
+    "title": "Wsiadanie",
+    "hint": "Zeskanuj kod QR pasażera (lub wklej jego tekst), aby sprawdzić bilet.",
+    "placeholder": "BT1.XXXXXX.…",
+    "scan": "Sprawdź bilet",
+    "noAccess": "Ta strona jest dla kierowców i administratorów.",
+    "valid": "Bilet ważny",
+    "invalid": "Bilet nieważny",
+    "boardedNow": "Wsiadanie odnotowane",
+    "alreadyBoarded": "Już wcześniej wsiadł",
+    "reasonNOT_PAID": "Rezerwacja nie jest opłacona",
+    "reasonTRIP_CANCELLED": "Kurs został odwołany",
+    "unknown": "Nie rozpoznano biletu",
+    "passengers": "Pasażerowie"
+  },
+  "help": {
+    "title": "Pomoc i regulamin",
+    "faq": [
+      {
+        "q": "Jak zarezerwować bilet?",
+        "a": "Wyszukaj trasę, wybierz kurs i miejsca, wpisz imiona pasażerów i zapłać. Bilet z kodem QR przyjdzie e-mailem i zostanie w „Moich podróżach”."
+      },
+      {
+        "q": "Jak długo miejsca są zarezerwowane?",
+        "a": "30 minut. Jeśli płatność nie zostanie dokończona na czas, miejsca są zwalniane automatycznie."
+      },
+      {
+        "q": "Czy mogę anulować bilet?",
+        "a": "Tak, do 2 godzin przed odjazdem. Opłacone bilety są zwracane na pierwotną formę płatności."
+      },
+      {
+        "q": "Jaki bagaż jest wliczony?",
+        "a": "Jedna sztuka bagażu podręcznego na pasażera jest bezpłatna. Duża walizka kosztuje niewielką stałą opłatę widoczną przed płatnością."
+      },
+      {
+        "q": "Co jeśli kurs zostanie odwołany?",
+        "a": "Dostaniesz powiadomienie e-mailem, rezerwacja zostanie anulowana, a pieniądze zwrócone w całości."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Wygodne podróże autobusem po Europie.",
+    "rights": "BusTravel. Projekt portfolio.",
+    "demo": "Projekt demonstracyjny: płatności działają w trybie testowym, prawdziwe bilety nie są sprzedawane.",
+    "photos": "Autorzy zdjęć",
+    "explore": "Przeglądaj",
+    "account": "Konto",
+    "languages": "Język",
+    "built": "Zbudowane w Next.js, NestJS i PostgreSQL",
+    "legal": "Informacje prawne"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Polityka prywatności",
+      "sections": [
+        {
+          "h": "Kim jesteśmy",
+          "p": "BusTravel to projekt portfolio. Nie jest prawdziwym przewoźnikiem i nie sprzedaje prawdziwych biletów."
+        },
+        {
+          "h": "Co przechowujemy",
+          "p": "Przy rejestracji zapisujemy Twoje imię, adres e-mail i zahaszowane hasło. Przy rezerwacji zapisujemy przejazd, miejsca i imiona pasażerów, które wpisujesz. Nigdy nie widzimy ani nie zapisujemy danych karty: płatności działają w trybie testowym."
+        },
+        {
+          "h": "Cookies",
+          "p": "Używamy tylko niezbędnych plików cookie: dwóch plików logowania, które utrzymują Cię w koncie (skrypty ich nie odczytają), oraz wyboru języka. Nie ma reklamowych ani śledzących cookies, więc nie ma banera. Wybrane miasto wyjazdu na stronie głównej zostaje tylko w Twojej przeglądarce."
+        },
+        {
+          "h": "Lokalizacja",
+          "p": "Przycisk lokalizacji na stronie głównej prosi przeglądarkę o zgodę. Twoja pozycja jest użyta jednorazowo w przeglądarce, aby znaleźć najbliższe miasto, i nigdy nie trafia na nasze serwery."
+        },
+        {
+          "h": "Okres przechowywania",
+          "p": "Dane są przechowywane tylko na potrzeby działania dema i mogą zostać usunięte w każdej chwili."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Warunki korzystania",
+      "sections": [
+        {
+          "h": "Usługa demonstracyjna",
+          "p": "BusTravel pokazuje, jak mogłaby działać internetowa rezerwacja przejazdów autobusowych. Trasy, ceny i rozkłady to przykłady, a nie prawdziwe przejazdy."
+        },
+        {
+          "h": "Rezerwacje i płatności",
+          "p": "Wybrane miejsce jest rezerwowane na 30 minut. Płatność działa w trybie testowym: nie pobieramy pieniędzy i nie wydajemy prawdziwych biletów."
+        },
+        {
+          "h": "Twoje konto",
+          "p": "Dbaj o swoje hasło. Odpowiadasz za działania w swoim koncie."
+        },
+        {
+          "h": "Treści",
+          "p": "Zdjęcia miast pochodzą z Wikimedia Commons. Autorzy i licencje są podane w stopce w sekcji „Autorzy zdjęć”."
+        },
+        {
+          "h": "Odpowiedzialność",
+          "p": "Usługa jest udostępniana w stanie „takim, jaki jest”, bez gwarancji ciągłej dostępności i bezbłędności."
+        }
+      ]
+    },
+    "imprint": {
+      "title": "Stopka prawna",
+      "sections": [
+        {
+          "h": "Operator",
+          "p": "BusTravel to niekomercyjny projekt portfolio prowadzony przez jego autora."
+        },
+        {
+          "h": "Cel",
+          "p": "Projekt pokazuje pełny stos webowy: frontend w Next.js, API w NestJS, bazę PostgreSQL i automatyczne wdrażanie."
+        },
+        {
+          "h": "Dla prawdziwej usługi",
+          "p": "Na tej stronie znalazłyby się pełna nazwa, adres i dane kontaktowe operatora, na przykład Impressum wymagane w Niemczech."
+        }
+      ]
+    }
+  },
+  "extras": {
+    "roundTrip": "W obie strony",
+    "oneWay": "W jedną stronę",
+    "returnDate": "Powrót",
+    "chooseOutbound": "Wybierz kurs w tamtą stronę",
+    "chooseReturn": "Wybierz kurs powrotny",
+    "outboundHeld": "Kurs w tamtą stronę wybrany. Jego miejsca są zarezerwowane na czas wyboru powrotu.",
+    "priceByDay": "Ceny według dni",
+    "noTripsDay": "Brak kursów",
+    "lowest": "Najniższa",
+    "save": "Zapisz trasę",
+    "unsave": "Usuń z zapisanych",
+    "savedRoutes": "Zapisane trasy",
+    "recent": "Ostatnie wyszukiwania",
+    "share": "Udostępnij",
+    "copied": "Link skopiowany",
+    "onBoard": "Na pokładzie",
+    "wifi": "Wi-Fi",
+    "usb": "Gniazda USB",
+    "ac": "Klimatyzacja",
+    "wc": "Toaleta",
+    "hold": "Bagażnik",
+    "roundTripTickets": "W obie strony: {count, plural, one {# bilet} few {# bilety} other {# biletów}}",
+    "rating": "{avg} na 5",
+    "ratingCount": "{count, plural, one {# opinia} few {# opinie} many {# opinii} other {# opinii}}",
+    "demoNote": "Tryb testowy: pieniądze nie są pobierane, prawdziwe bilety nie są sprzedawane. To projekt demonstracyjny."
+  },
+  "reviews": {
+    "title": "Opinie pasażerów",
+    "based": "{count, plural, one {Na podstawie # opinii} other {Na podstawie # opinii}}",
+    "verified": "Zweryfikowany pasażer",
+    "write": "Oceń przejazd",
+    "yourRating": "Twoja ocena",
+    "comment": "Komentarz (opcjonalnie)",
+    "commentPh": "Jak minęła podróż?",
+    "submit": "Wyślij opinię",
+    "thanks": "Dziękujemy za opinię!",
+    "yours": "Twoja opinia",
+    "none": "Brak opinii. Bądź pierwszy po podróży.",
+    "stars": "{n} z 5 gwiazdek",
+    "error": "Nie udało się wysłać opinii. Spróbuj ponownie."
+  },
+  "common": {
+    "loading": "Ładowanie…"
+  }
+}

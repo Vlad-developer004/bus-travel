@@ -1,0 +1,200 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  DRIVER
+  ADMIN
+}
+
+enum TripStatus {
+  SCHEDULED
+  CANCELLED
+  DEPARTED
+}
+
+enum BookingStatus {
+  PENDING
+  PAID
+  CANCELLED
+  EXPIRED
+}
+
+model User {
+  id              String         @id @default(uuid())
+  email           String         @unique
+  passwordHash    String
+  name            String?
+  locale          String         @default("en")
+  role            Role           @default(USER)
+  isOwner         Boolean        @default(false)
+  emailVerifiedAt DateTime?
+  createdAt       DateTime       @default(now())
+  refreshTokens   RefreshToken[]
+  bookings        Booking[]
+  reviews         Review[]
+}
+
+model AdminInvite {
+  id          String   @id @default(uuid())
+  email       String   @unique
+  tokenHash   String
+  locale      String   @default("en")
+  invitedById String
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model City {
+  id         String  @id @default(uuid())
+  slug       String  @unique
+  countryIso String
+  lat        Float
+  lng        Float
+  names      Json
+  routesFrom Route[] @relation("RouteFrom")
+  routesTo   Route[] @relation("RouteTo")
+}
+
+model Route {
+  id             String         @id @default(uuid())
+  fromCityId     String
+  toCityId       String
+  fromStation    String
+  toStation      String
+  distanceKm     Int
+  durationMin    Int
+  basePriceCents Int
+  from           City           @relation("RouteFrom", fields: [fromCityId], references: [id])
+  to             City           @relation("RouteTo", fields: [toCityId], references: [id])
+  trips          Trip[]
+  templates      TripTemplate[]
+  reviews        Review[]
+
+  @@unique([fromCityId, toCityId])
+}
+
+model Bus {
+  id        String         @id @default(uuid())
+  plate     String         @unique
+  model     String
+  seatCount Int
+  trips     Trip[]
+  templates TripTemplate[]
+}
+
+model TripTemplate {
+  id            String  @id @default(uuid())
+  routeId       String
+  busId         String
+  departureTime String
+  daysOfWeek    Int[]
+  priceCents    Int?
+  active        Boolean @default(true)
+  route         Route   @relation(fields: [routeId], references: [id])
+  bus           Bus     @relation(fields: [busId], references: [id])
+  trips         Trip[]
+}
+
+model Trip {
+  id          String        @id @default(uuid())
+  routeId     String
+  busId       String
+  templateId  String?
+  departureAt DateTime
+  arrivalAt   DateTime
+  priceCents  Int
+  currency    String        @default("EUR")
+  status      TripStatus    @default(SCHEDULED)
+  route       Route         @relation(fields: [routeId], references: [id])
+  bus         Bus           @relation(fields: [busId], references: [id])
+  template    TripTemplate? @relation(fields: [templateId], references: [id], onDelete: SetNull)
+  bookings    Booking[]
+  seats       BookingSeat[]
+
+  @@unique([templateId, departureAt])
+  @@index([routeId, departureAt])
+}
+
+model Booking {
+  id              String        @id @default(uuid())
+  code            String        @unique
+  userId          String
+  tripId          String
+  status          BookingStatus @default(PENDING)
+  contactEmail    String
+  contactPhone    String?
+  locale          String        @default("en")
+  totalCents      Int
+  currency        String        @default("EUR")
+  expiresAt       DateTime
+  paymentProvider String?
+  paymentRef      String?
+  paidAt          DateTime?
+  createdAt       DateTime      @default(now())
+  user            User          @relation(fields: [userId], references: [id])
+  trip            Trip          @relation(fields: [tripId], references: [id])
+  seats           BookingSeat[]
+  review          Review?
+
+  @@index([userId, createdAt])
+  @@index([status, expiresAt])
+}
+
+model BookingSeat {
+  id            String    @id @default(uuid())
+  bookingId     String
+  tripId        String
+  seatNumber    Int
+  passengerName String
+  smallBags     Int       @default(1)
+  largeBags     Int       @default(0)
+  boardedAt     DateTime?
+  booking       Booking   @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  trip          Trip      @relation(fields: [tripId], references: [id])
+
+  @@unique([tripId, seatNumber])
+  @@index([bookingId])
+}
+
+model PaymentEvent {
+  id          String   @id
+  provider    String
+  processedAt DateTime @default(now())
+}
+
+model Review {
+  id         String   @id @default(uuid())
+  routeId    String
+  userId     String?
+  bookingId  String?  @unique
+  authorName String
+  rating     Int
+  comment    String?
+  locale     String   @default("en")
+  createdAt  DateTime @default(now())
+  route      Route    @relation(fields: [routeId], references: [id])
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  booking    Booking? @relation(fields: [bookingId], references: [id], onDelete: SetNull)
+
+  @@index([routeId, createdAt])
+}

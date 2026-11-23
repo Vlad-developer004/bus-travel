@@ -1,0 +1,461 @@
+{
+  "meta": {
+    "title": "BusTravel: bequem mit dem Bus durch Europa",
+    "description": "Fahrten suchen, Sitzplatz wählen und das Ticket in wenigen Minuten erhalten."
+  },
+  "nav": {
+    "home": "Start",
+    "map": "Karte",
+    "trips": "Meine Reisen",
+    "help": "Hilfe",
+    "admin": "Admin",
+    "driver": "Fahrer",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "logout": "Abmelden",
+    "menu": "Menü",
+    "main": "Hauptnavigation",
+    "mobile": "Mobiles Menü"
+  },
+  "home": {
+    "title": "Deine nächste Reise beginnt hier",
+    "subtitle": "Bequem und günstig mit dem Bus zwischen 13 europäischen Städten. Sitzplatz wählen und das Ticket in wenigen Minuten erhalten.",
+    "from": "Von",
+    "to": "Nach",
+    "date": "Datum",
+    "passengers": "Fahrgäste",
+    "search": "Fahrten suchen",
+    "selectCity": "Stadt wählen",
+    "swap": "Städte tauschen",
+    "popular": "Beliebte Verbindungen",
+    "popularSub": "Tägliche Abfahrten, feste Preise, keine versteckten Gebühren.",
+    "fromPrice": "ab {price}",
+    "whyTitle": "Warum BusTravel",
+    "why": {
+      "punctual": {
+        "t": "Pünktlich",
+        "d": "Tägliche Abfahrten nach festem Fahrplan, damit du sicher planen kannst."
+      },
+      "comfort": {
+        "t": "Sitzplatz wählen",
+        "d": "Sieh den Sitzplan und such dir genau den Platz aus, den du möchtest."
+      },
+      "safe": {
+        "t": "Sicher und einfach",
+        "d": "Sichere Bezahlung und ein QR-Ticket direkt in dein Postfach."
+      },
+      "price": {
+        "t": "Faire Preise",
+        "d": "Der angezeigte Preis ist der Preis, den du zahlst. Zusatzgepäck ist klar ausgewiesen."
+      }
+    },
+    "mapTitle": "Das ganze Netz im Blick",
+    "mapText": "Alle Städte und Verbindungen auf einer interaktiven Karte.",
+    "mapCta": "Karte öffnen",
+    "statCities": "Städte",
+    "statRoutes": "Strecken",
+    "statLangs": "Sprachen",
+    "popularFrom": "Ab",
+    "locate": "Meinen Standort nutzen",
+    "locateFail": "Wir konnten Ihren Standort nicht ermitteln. Wählen Sie stattdessen eine Stadt aus der Liste."
+  },
+  "search": {
+    "title": "Fahrten {from} → {to}",
+    "noResults": "Für diesen Tag wurden keine Fahrten gefunden",
+    "noResultsHint": "Probiere ein anderes Datum. Die Busse fahren täglich.",
+    "seatsLeft": "{count, plural, one {# Platz frei} other {# Plätze frei}}",
+    "select": "Plätze wählen",
+    "pickCities": "Wähle beide Städte für die Suche",
+    "sameCity": "Start und Ziel müssen verschieden sein",
+    "loading": "Suche läuft…",
+    "prevDay": "Vorheriger Tag",
+    "nextDay": "Nächster Tag",
+    "sortBy": "Sortieren",
+    "sortTime": "Früheste",
+    "sortPrice": "Günstigste",
+    "sortFast": "Schnellste",
+    "morning": "Morgens",
+    "afternoon": "Nachmittags",
+    "evening": "Abends",
+    "onlySeats": "Plätze für alle",
+    "cheapest": "Günstigste",
+    "fastest": "Schnellste",
+    "found": "{count, plural, one {# Fahrt} other {# Fahrten}}",
+    "fromPrice": "ab {price}",
+    "reset": "Filter zurücksetzen",
+    "noMatch": "Keine Fahrten für diese Filter"
+  },
+  "trip": {
+    "title": "Sitzplätze wählen",
+    "free": "Frei",
+    "taken": "Belegt",
+    "selected": "Dein Platz",
+    "front": "Vorderseite des Busses",
+    "passengerDetails": "Angaben zu den Fahrgästen",
+    "passenger": "Fahrgast {n} (Platz {seat})",
+    "fullName": "Vollständiger Name",
+    "largeBags": "Großer Koffer (+{fee})",
+    "total": "Gesamt",
+    "book": "Weiter zur Zahlung",
+    "loginToBook": "Zum Buchen anmelden",
+    "seatTaken": "Einer der Plätze wurde gerade von jemand anderem gebucht. Bitte wähle einen anderen.",
+    "hold": "Deine Plätze sind 30 Minuten für dich reserviert.",
+    "selectAtLeast": "Wähle mindestens einen Platz",
+    "nameRequired": "Gib für jeden Fahrgast einen Namen an",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "departed": "Diese Fahrt ist nicht mehr verfügbar"
+  },
+  "auth": {
+    "loginTitle": "Willkommen zurück",
+    "registerTitle": "Konto erstellen",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "passwordHint": "Mindestens 8 Zeichen",
+    "name": "Name",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "noAccount": "Noch kein Konto?",
+    "haveAccount": "Schon registriert?",
+    "invalid": "E-Mail oder Passwort falsch",
+    "exists": "Diese E-Mail ist bereits registriert",
+    "verifying": "E-Mail wird bestätigt…",
+    "verified": "E-Mail bestätigt. Danke!",
+    "verifyFailed": "Dieser Bestätigungslink ist ungültig oder abgelaufen.",
+    "perk1": "Wähle deinen Sitzplatz direkt im Bus-Plan",
+    "perk2": "Tickets mit QR-Code, immer auf dem Handy dabei",
+    "perk3": "Strecken speichern und alle Reisen an einem Ort sehen",
+    "show": "Passwort anzeigen",
+    "hide": "Passwort verbergen",
+    "perksTitle": "Alles für deine Reise in einem Konto",
+    "inviteBanner": "Du wurdest als Administrator eingeladen. Erstelle dein Konto, um die Einladung anzunehmen."
+  },
+  "account": {
+    "title": "Meine Reisen",
+    "loading": "Lädt…",
+    "empty": "Du hast noch keine Buchungen.",
+    "emptyCta": "Fahrt finden",
+    "status": {
+      "PENDING": "Zahlung offen",
+      "PAID": "Bezahlt",
+      "CANCELLED": "Storniert",
+      "EXPIRED": "Abgelaufen"
+    },
+    "pay": "Jetzt bezahlen",
+    "cancel": "Buchung stornieren",
+    "cancelConfirm": "Diese Buchung stornieren?",
+    "yes": "Ja, stornieren",
+    "no": "Behalten",
+    "payBefore": "Zahle bis {time}, sonst werden die Plätze freigegeben",
+    "ticket": "Dein Ticket",
+    "ticketHint": "Zeige diesen QR-Code beim Einsteigen dem Fahrer.",
+    "seats": "Sitzplätze",
+    "code": "Buchungscode",
+    "paidOk": "Zahlung erhalten. Dein Ticket findest du unten und in deinem Postfach.",
+    "back": "Alle Reisen",
+    "passengers": "Fahrgäste",
+    "baggage": "Gepäck",
+    "boarded": "Eingestiegen",
+    "cancelFailed": "Diese Buchung kann nicht mehr storniert werden (weniger als 2 Stunden vor Abfahrt).",
+    "total": "Gesamt",
+    "addCal": "Zum Kalender hinzufügen",
+    "print": "Ticket drucken",
+    "calTitle": "Bus {from} → {to}",
+    "upcoming": "Kommende Reisen",
+    "past": "Vergangene Reisen",
+    "next": "Nächste Reise"
+  },
+  "pay": {
+    "title": "Demo-Kasse",
+    "text": "Dies ist eine Demo-Zahlungsseite. Es wird kein echtes Geld abgebucht und kein echtes Ticket ausgestellt. Gib keine echten Kartendaten ein.",
+    "button": "{amount} bezahlen",
+    "demo": "Testmodus",
+    "processing": "Wird verarbeitet…",
+    "error": "Die Zahlung konnte nicht abgeschlossen werden."
+  },
+  "map": {
+    "title": "Unser Netz",
+    "subtitle": "Klicke auf eine Stadt, um die Direktverbindungen zu sehen.",
+    "routesFrom": "Verbindungen ab {city}"
+  },
+  "admin": {
+    "title": "Dashboard",
+    "noAccess": "Diese Seite ist nur für Administratoren.",
+    "revenue": "Umsatz",
+    "paidBookings": "Bezahlte Buchungen",
+    "upcomingTrips": "Kommende Fahrten",
+    "pending": "Zahlung offen",
+    "last14": "Umsatz der letzten 14 Tage",
+    "bookings": "Buchungen",
+    "all": "Alle",
+    "code": "Code",
+    "route": "Strecke",
+    "email": "Kunde",
+    "seatsCol": "Plätze",
+    "total": "Summe",
+    "status": "Status",
+    "departure": "Abfahrt",
+    "empty": "Keine Buchungen",
+    "week": "Letzte 7 Tage",
+    "vsPrev": "{pct} zur Vorwoche",
+    "occupancy": "Auslastung",
+    "occupancyHint": "der Plätze auf Fahrten der nächsten 7 Tage sind gebucht",
+    "topRoutes": "Top-Strecken nach Umsatz",
+    "tickets": "{n} Tickets",
+    "search": "Suche nach Code oder E-Mail",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "page": "Seite {n} von {total}",
+    "noSales": "Noch keine Verkäufe",
+    "team": "Administratoren",
+    "teamHint": "Lade Personen per E-Mail ein. Wer noch kein Konto hat, erhält einen Link, der das neue Konto zum Administrator macht.",
+    "inviteEmail": "E-Mail-Adresse",
+    "inviteBtn": "Einladung senden",
+    "owner": "Inhaber",
+    "remove": "Zugriff entziehen",
+    "removeConfirm": "Administratorzugriff für {email} entziehen?",
+    "pendingInvites": "Offene Einladungen",
+    "revoke": "Einladung zurückziehen",
+    "sentInvite": "Einladung an {email} gesendet.",
+    "promoted": "{email} ist jetzt Administrator.",
+    "already": "Diese Person ist bereits Administrator.",
+    "inviteFail": "Einladung konnte nicht gesendet werden.",
+    "expires": "gültig bis {date}",
+    "booked": "Gebucht",
+    "cancel": "Abbrechen",
+    "tabs": {
+      "overview": "Übersicht",
+      "bookings": "Buchungen",
+      "trips": "Fahrten",
+      "routes": "Strecken",
+      "users": "Nutzer",
+      "team": "Administratoren"
+    },
+    "cancelledRefunded": "Buchung storniert und erstattet.",
+    "cancelledOk": "Buchung storniert.",
+    "actionFail": "Die Aktion ist fehlgeschlagen. Bitte versuche es erneut.",
+    "resent": "Ticket-E-Mail gesendet.",
+    "actions": "Aktionen",
+    "cancelRefund": "Stornieren und erstatten",
+    "cancelBooking": "Buchung stornieren",
+    "keep": "Behalten",
+    "openTicket": "Ticket öffnen",
+    "resend": "Ticket-E-Mail erneut senden",
+    "trips": "Fahrten",
+    "addTrip": "Fahrt hinzufügen",
+    "tripCreated": "Fahrt erstellt.",
+    "bus": "Bus",
+    "create": "Erstellen",
+    "priceOptional": "Preis, € (leer = Streckenpreis)",
+    "scope": {
+      "upcoming": "Kommende",
+      "past": "Vergangene",
+      "cancelled": "Abgesagte"
+    },
+    "fromCity": "Von Stadt",
+    "toCity": "Nach Stadt",
+    "reset": "Zurücksetzen",
+    "occupancyCol": "Verkaufte Plätze",
+    "price": "Preis",
+    "tripStatus": {
+      "SCHEDULED": "Geplant",
+      "CANCELLED": "Abgesagt",
+      "COMPLETED": "Durchgeführt"
+    },
+    "cancelTripConfirm": "Fahrt und {n} Buchungen absagen",
+    "cancelTrip": "Fahrt absagen",
+    "tripCancelled": "Fahrt abgesagt: {n} Buchungen storniert, {refunded} erstattet.",
+    "editPrice": "Preis ändern",
+    "save": "Speichern",
+    "routes": "Strecken",
+    "routesHint": "Der Basispreis gilt für Fahrten, die ab jetzt erstellt werden. Bestehende Fahrten behalten ihren Preis; ändere sie unter Fahrten.",
+    "distance": "Entfernung",
+    "durationCol": "Dauer",
+    "basePrice": "Basispreis",
+    "schedules": "Fahrpläne",
+    "priceSaved": "Basispreis gespeichert.",
+    "schedulesTitle": "Fahrpläne",
+    "schedulesHint": "Ein Fahrplan erstellt automatisch Fahrten für die nächsten 30 Tage. Schalte ihn aus, um keine neuen Fahrten mehr zu erstellen (bestehende bleiben).",
+    "addSchedule": "Fahrplan hinzufügen",
+    "scheduleCreated": "Fahrplan erstellt, Fahrten generiert.",
+    "timeUtc": "Abfahrt (UTC)",
+    "days": "Tage",
+    "daily": "Täglich",
+    "byRoute": "Streckenpreis",
+    "active": "Aktiv",
+    "users": "Nutzer",
+    "searchUsers": "Suche nach Name oder E-Mail",
+    "role": "Rolle",
+    "passenger": "Fahrgast",
+    "bookingsCount": "Buchungen",
+    "registered": "Registriert",
+    "emailVerified": "E-Mail bestätigt",
+    "roleSaved": "Rolle gespeichert.",
+    "noTrips": "Keine Fahrten gefunden.",
+    "time": "Uhrzeit"
+  },
+  "driver": {
+    "title": "Einstieg",
+    "hint": "Scanne den QR-Code des Fahrgasts (oder füge den Text ein), um das Ticket zu prüfen.",
+    "placeholder": "BT1.XXXXXX.…",
+    "scan": "Ticket prüfen",
+    "noAccess": "Diese Seite ist nur für Fahrer und Administratoren.",
+    "valid": "Gültiges Ticket",
+    "invalid": "Ungültiges Ticket",
+    "boardedNow": "Eingestiegen",
+    "alreadyBoarded": "Bereits zuvor eingestiegen",
+    "reasonNOT_PAID": "Die Buchung ist nicht bezahlt",
+    "reasonTRIP_CANCELLED": "Die Fahrt wurde abgesagt",
+    "unknown": "Ticket nicht erkannt",
+    "passengers": "Fahrgäste"
+  },
+  "help": {
+    "title": "Hilfe und Regeln",
+    "faq": [
+      {
+        "q": "Wie buche ich ein Ticket?",
+        "a": "Strecke suchen, Fahrt wählen, Sitzplätze aussuchen, Namen eintragen und bezahlen. Das Ticket mit QR-Code kommt per E-Mail und bleibt unter „Meine Reisen“."
+      },
+      {
+        "q": "Wie lange sind meine Plätze reserviert?",
+        "a": "30 Minuten. Wird die Zahlung nicht rechtzeitig abgeschlossen, werden die Plätze automatisch freigegeben."
+      },
+      {
+        "q": "Kann ich ein Ticket stornieren?",
+        "a": "Ja, bis 2 Stunden vor Abfahrt. Bezahlte Tickets werden auf das ursprüngliche Zahlungsmittel erstattet."
+      },
+      {
+        "q": "Welches Gepäck ist inklusive?",
+        "a": "Ein Handgepäckstück pro Fahrgast ist kostenlos. Ein großer Koffer kostet eine kleine feste Gebühr, die vor der Zahlung angezeigt wird."
+      },
+      {
+        "q": "Was passiert, wenn meine Fahrt ausfällt?",
+        "a": "Du wirst per E-Mail informiert, die Buchung wird storniert und du erhältst den vollen Betrag zurück."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Bequem mit dem Bus durch Europa.",
+    "rights": "BusTravel. Portfolio-Projekt.",
+    "demo": "Demo-Projekt: Zahlungen laufen im Testmodus, es werden keine echten Tickets verkauft.",
+    "photos": "Bildnachweise",
+    "explore": "Entdecken",
+    "account": "Konto",
+    "languages": "Sprache",
+    "built": "Gebaut mit Next.js, NestJS und PostgreSQL",
+    "legal": "Rechtliches"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "sections": [
+        {
+          "h": "Wer wir sind",
+          "p": "BusTravel ist ein Portfolio-Projekt. Es ist kein echtes Verkehrsunternehmen und verkauft keine echten Tickets."
+        },
+        {
+          "h": "Was wir speichern",
+          "p": "Bei der Registrierung speichern wir Ihren Namen, Ihre E-Mail-Adresse und ein gehashtes Passwort. Bei einer Buchung speichern wir Fahrt, Sitzplätze und die von Ihnen eingegebenen Fahrgastnamen. Kartendaten sehen und speichern wir nie: Zahlungen laufen im Testmodus."
+        },
+        {
+          "h": "Cookies",
+          "p": "Wir verwenden nur technisch notwendige Cookies: zwei Anmelde-Cookies, die Sie eingeloggt halten (Skripte können sie nicht lesen), und Ihre Sprachwahl. Es gibt keine Werbe- oder Tracking-Cookies, daher auch kein Cookie-Banner. Ihre Wahl der Abfahrtsstadt auf der Startseite bleibt nur in Ihrem Browser."
+        },
+        {
+          "h": "Standort",
+          "p": "Die Standort-Schaltfläche auf der Startseite fragt Ihren Browser um Erlaubnis. Ihre Position wird einmal im Browser genutzt, um die nächste Stadt zu finden, und nie an unsere Server gesendet."
+        },
+        {
+          "h": "Speicherdauer",
+          "p": "Daten werden nur für den Betrieb der Demo gespeichert und können jederzeit gelöscht werden."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen",
+      "sections": [
+        {
+          "h": "Ein Demo-Dienst",
+          "p": "BusTravel zeigt, wie ein Online-Buchungsdienst für Busse funktionieren könnte. Strecken, Preise und Fahrpläne sind Beispiele und beschreiben keine echten Fahrten."
+        },
+        {
+          "h": "Buchungen und Zahlungen",
+          "p": "Ein gewählter Sitzplatz wird 30 Minuten reserviert. Die Zahlung läuft im Testmodus: Es wird kein Geld abgebucht und es werden keine echten Tickets ausgestellt."
+        },
+        {
+          "h": "Ihr Konto",
+          "p": "Bewahren Sie Ihr Passwort sicher auf. Sie sind für Aktivitäten in Ihrem Konto verantwortlich."
+        },
+        {
+          "h": "Inhalte",
+          "p": "Städtefotos stammen von Wikimedia Commons. Urheber und Lizenzen stehen im Footer unter „Bildnachweise“."
+        },
+        {
+          "h": "Haftung",
+          "p": "Der Dienst wird ohne Gewähr bereitgestellt, weder für ständige Verfügbarkeit noch für Fehlerfreiheit."
+        }
+      ]
+    },
+    "imprint": {
+      "title": "Impressum",
+      "sections": [
+        {
+          "h": "Betreiber",
+          "p": "BusTravel ist ein nicht kommerzielles Portfolio-Projekt, betrieben von seinem Autor."
+        },
+        {
+          "h": "Zweck",
+          "p": "Es zeigt einen kompletten Web-Stack: Next.js-Frontend, NestJS-API, PostgreSQL-Datenbank und automatisiertes Deployment."
+        },
+        {
+          "h": "Für einen echten Dienst",
+          "p": "Hier stünden der rechtliche Name, die Anschrift und die Kontaktdaten des Betreibers, etwa das in Deutschland vorgeschriebene Impressum."
+        }
+      ]
+    }
+  },
+  "extras": {
+    "roundTrip": "Hin und zurück",
+    "oneWay": "Einfache Fahrt",
+    "returnDate": "Rückfahrt",
+    "chooseOutbound": "Wähle deine Hinfahrt",
+    "chooseReturn": "Wähle deine Rückfahrt",
+    "outboundHeld": "Hinfahrt gewählt. Die Plätze sind reserviert, während du die Rückfahrt wählst.",
+    "priceByDay": "Preise pro Tag",
+    "noTripsDay": "Keine Fahrten",
+    "lowest": "Günstigster",
+    "save": "Strecke merken",
+    "unsave": "Aus Merkliste entfernen",
+    "savedRoutes": "Gemerkte Strecken",
+    "recent": "Letzte Suchen",
+    "share": "Teilen",
+    "copied": "Link kopiert",
+    "onBoard": "An Bord",
+    "wifi": "WLAN",
+    "usb": "USB-Steckdosen",
+    "ac": "Klimaanlage",
+    "wc": "Toilette",
+    "hold": "Gepäckraum",
+    "roundTripTickets": "Hin und zurück: {count, plural, one {# Ticket} other {# Tickets}}",
+    "rating": "{avg} von 5",
+    "ratingCount": "{count, plural, one {# Bewertung} other {# Bewertungen}}",
+    "demoNote": "Testmodus: Es wird kein echtes Geld abgebucht und es werden keine echten Tickets verkauft. Dies ist ein Portfolio-Projekt."
+  },
+  "reviews": {
+    "title": "Bewertungen von Fahrgästen",
+    "based": "{count, plural, one {Basierend auf # Bewertung} other {Basierend auf # Bewertungen}}",
+    "verified": "Verifizierter Fahrgast",
+    "write": "Fahrt bewerten",
+    "yourRating": "Deine Bewertung",
+    "comment": "Kommentar (optional)",
+    "commentPh": "Wie war die Fahrt?",
+    "submit": "Bewertung senden",
+    "thanks": "Danke für deine Bewertung!",
+    "yours": "Deine Bewertung",
+    "none": "Noch keine Bewertungen. Sei nach deiner Fahrt der Erste.",
+    "stars": "{n} von 5 Sternen",
+    "error": "Bewertung konnte nicht gesendet werden. Bitte erneut versuchen."
+  },
+  "common": {
+    "loading": "Wird geladen…"
+  }
+}
