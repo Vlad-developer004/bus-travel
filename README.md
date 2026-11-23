@@ -3,8 +3,9 @@
 Intercity bus booking: search trips, pick seats on a seat map, pay, get a QR ticket that the driver validates at boarding.
 Available in English, Ukrainian, German and Polish.
 
-> **Background.** This is a ground-up rewrite of an earlier side project (Express + MongoDB + Create React App, built together with a friend: I wrote the backend, he wrote the frontend).
+> **Background.** A ground-up rewrite of an earlier side project (Express + MongoDB + Create React App).
 > The idea and the domain stayed; the stack, architecture, data model, UI and delivery pipeline are new. See [docs/MIGRATION_FROM_V1.md](docs/MIGRATION_FROM_V1.md).
+
 > **Test mode: no real money moves and no real tickets are sold.** Payments run through a built-in demo checkout (or Stripe test keys, where cards like `4242 4242 4242 4242` are fake).
 > Every payment, ticket and email in the app says so. Never enter real card data.
 
@@ -25,7 +26,8 @@ Available in English, Ukrainian, German and Polish.
 * Round trip: outbound and return are booked in one flow and paid together (demo checkout).
 * Reviews: only the owner of a **paid** booking can review it, one review per booking (enforced on the server); ratings of A→B and B→A are shown together.
 * Dynamic pricing by weekday and time of day, 4 languages, a custom accessible dropdown and calendar, a map on real road geometry.
-* Admin dashboard, driver ticket validation, SEO (Open Graph, sitemap, hreflang) and a zero layout shift search page.
+* Admin area: revenue and occupancy dashboard, sortable bookings (cancel with refund, resend ticket), trips (change price, cancel), routes and recurring schedules, user roles, and owner-only invitations of new administrators by e-mail.
+* Driver ticket validation, branded ticket e-mails in 4 languages, SEO (Open Graph, sitemap, hreflang), lazy-loaded images, translations and code, and a search page without layout shift.
 
 ## Stack
 
@@ -77,6 +79,8 @@ npm run dev:api                              # terminal 2: API on :4000  (Swagge
 npm run dev:web                              # terminal 3: web on :3000
 ```
 
+E-mails are saved as HTML files in `apps/api/.mail` while `SMTP_HOST` is empty; set the `SMTP_*` variables to send them for real.
+
 Demo accounts (seed, development only; password `Demo1234!`): `demo@bustravel.local`, `driver@bustravel.local`, `admin@bustravel.local`.
 
 With Docker instead: `docker compose up --build` (starts Postgres, runs migrations, API and web on localhost).
@@ -84,8 +88,8 @@ With Docker instead: `docker compose up --build` (starts Postgres, runs migratio
 ## Tests
 
 ```bash
-npm run test:e2e -w apps/api        # 10 API tests, boots its own throw-away PostgreSQL if DATABASE_URL is not set
-cd apps/web && npx playwright test  # browser journey: search -> sign up -> seat -> pay -> QR  (PW_CHANNEL=msedge reuses an installed browser)
+npm run test:e2e -w apps/api        # 12 API tests, boots its own throw-away PostgreSQL if DATABASE_URL is not set
+cd apps/web && npx playwright test  # 7 browser tests: booking, round trip, reviews, admin area, driver flow  (PW_CHANNEL=msedge reuses an installed browser)
 ```
 
 ## Environments and delivery

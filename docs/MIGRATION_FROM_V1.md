@@ -10,8 +10,8 @@
 | Payments | Fondy; the callback handler was empty | Provider interface (mock / Stripe), signed + idempotent webhook, auto-refund of late payments |
 | Seats | none | seat map, seat holds with expiry, concurrency-safe booking |
 | Tickets | e-mail with an HTML table | QR ticket (HMAC-signed), driver validation screen, boarding status |
-| Admin | page for creating flights | dashboard (revenue, bookings, filters), trip cancel with refunds and e-mails, recurring schedules |
-| Tests | none | 9 API e2e tests on real PostgreSQL + 3 Playwright browser tests |
+| Admin | page for creating flights | dashboard (revenue, occupancy, top routes), sortable bookings with cancel/refund and ticket resend, trips, routes, recurring schedules, user roles, invitations of administrators |
+| Tests | none | 12 API e2e tests on real PostgreSQL + 7 Playwright browser tests |
 | Delivery | `Procfile`, manual | Docker, CI/CD, staging + production, auto-rollback, DB backup before every deploy |
 
 ## Data model mapping
