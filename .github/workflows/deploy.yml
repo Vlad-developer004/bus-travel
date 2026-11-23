@@ -25,7 +25,7 @@ jobs:
     outputs:
       tag: ${{ steps.meta.outputs.tag }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: meta
         run: |
           echo "tag=${GITHUB_SHA::12}" >> "$GITHUB_OUTPUT"
@@ -65,7 +65,7 @@ jobs:
       name: staging
       url: https://${{ vars.DOMAIN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/ssh-deploy
         with:
           environment: staging
@@ -86,7 +86,7 @@ jobs:
       name: production # protected: requires an approval click before this job starts
       url: https://${{ vars.DOMAIN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/ssh-deploy
         with:
           environment: production
