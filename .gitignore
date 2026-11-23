@@ -17,3 +17,8 @@ test-results
 skills-lock.json
 .neon
 neon.ts
+apps/api/public
+.vercel
+
+.vercel
+.env*
